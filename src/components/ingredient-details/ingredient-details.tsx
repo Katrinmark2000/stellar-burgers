@@ -10,8 +10,6 @@ export const IngredientDetails: FC = () => {
 
   const { id } = useParams<{ id: string }>(); //берем не массив, а единичный ингредент по айди
   const ingredientData = ingredients.find((item) => item._id === id);
-  console.log('Ingredients:', ingredients);
-  console.log('Ingredient Data:', ingredientData);
   if (!ingredientData) {
     return <Preloader />;
   }

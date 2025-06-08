@@ -29,7 +29,6 @@ export const BurgerConstructor: FC = () => {
       return;
     }
     if (!constructorItems.bun || orderRequest) return;
-    console.log('isAuthChecked:', isAuthChecked); // Логируем значение
 
     const order = [
       constructorItems.bun?._id,

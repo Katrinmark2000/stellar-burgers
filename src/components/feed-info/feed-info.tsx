@@ -28,7 +28,6 @@ export const FeedInfo: FC = () => {
   const readyOrders = getOrders(orders, 'done');
 
   const pendingOrders = getOrders(orders, 'pending');
-  console.log('feed:', feed);
   return (
     <FeedInfoUI
       readyOrders={readyOrders}

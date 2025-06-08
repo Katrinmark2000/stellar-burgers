@@ -8,8 +8,6 @@ export const Login: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log('Rendering Login');
-
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));

@@ -3,8 +3,6 @@ import { useSelector } from '../../services/store';
 import { getIsAuthChecked, getUser } from '../../services/slices/user/slice';
 import { Navigate, useLocation } from 'react-router-dom';
 
-// РАЗОБРАТЬСЯ ОТДЕЛЬНО
-
 type TProtectedRouteProps = {
   onlyUnAuth?: boolean;
   component: React.JSX.Element;
@@ -17,7 +15,6 @@ const Protected = ({
   const user = useSelector(getUser);
   const isAuthChecked = useSelector(getIsAuthChecked);
   const location = useLocation();
-  console.log('OnlyUnAuth render:', { user, isAuthChecked });
 
   // url == "/profile", onlyUnAuth = false, user == null
   // url == "/login", from: "/profile", onlyUnAuth = true, user == null

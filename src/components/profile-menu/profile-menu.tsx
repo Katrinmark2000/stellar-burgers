@@ -12,9 +12,7 @@ export const ProfileMenu: FC = () => {
   const handleLogout = () => {
     deleteCookie('accessToken');
     dispatch(logoutUser());
-    console.log('Пользователь вышел из профиля');
   };
-
-  console.log();
+  
   return <ProfileMenuUI handleLogout={handleLogout} pathname={pathname} />;
 };

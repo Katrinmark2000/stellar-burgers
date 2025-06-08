@@ -36,8 +36,6 @@ const App = () => {
     dispatch(getIngredients());
   }, []);
 
-  console.log('Background Location:', backgroundLocation);
-
   return (
     <div className={styles.app}>
       <AppHeader />
