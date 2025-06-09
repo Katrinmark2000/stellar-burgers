@@ -111,12 +111,17 @@ export const constructorBurgerSlice = createSlice({
   selectors: {
     setOrderRequest: (state) => state.orderRequest, //отслеживаем состояние запроса на создание заказа, его выполнение
     setOrderModalData: (state) => state.orderModalData, //данные модалки заказа
-    getConstructorItems: (state) => state.constructorItems //данные булок и ингредиентов
+    getConstructorItems: (state) => state.constructorItems, //данные булок и ингредиентов
+    setOrderStatus: (state) => state.loading //статус
   }
 });
 
-export const { setOrderRequest, setOrderModalData, getConstructorItems } =
-  constructorBurgerSlice.selectors;
+export const {
+  setOrderRequest,
+  setOrderModalData,
+  getConstructorItems,
+  setOrderStatus
+} = constructorBurgerSlice.selectors;
 export const {
   addBunAndIngredient,
   deleteIngredient,
@@ -125,36 +130,3 @@ export const {
   moveIngredientDown,
   resetConstructor
 } = constructorBurgerSlice.actions;
-
-/*tconst bookSlice = createSlice({
-    name: 'book',
-  initialState,
-  reducers: {
-        addBook: {
-            reducer: (state, action: PayloadAction<TBookWithKey>) => {
-                state.books.push(action.payload);
-      },
-      prepare: (book: TBook) => {
-                const key = nanoid();
-        return { payload: {...book, key } };
-      }
-    },
-    removeBook: (state, action: PayloadAction<string> => {
-            state.books = state.books.filter(b => b.id !== action.payload);
-    }
-  },
-  selectors: {
-        getBooks: (state) => state.books,
-  },
-  extraReducers: (builder) => {
-    builder.addCase(moveBook, (state, action) => {
-      state.books.splice(
-        action.payload.to,
-        0,
-        state.books.splice(action.payload.from, 1)[0]
-      );
-    }
-  } 
-});
-
-export const { getBook } = bookSlice.selectors; */

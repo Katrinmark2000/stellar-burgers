@@ -35,7 +35,7 @@ export const RegisterUI: FC<RegisterUIProps> = ({
               value={userName}
               name='name'
               error={false}
-              errorText=''
+              errorText={''}
               size='default'
             />
           </div>

@@ -1,17 +1,26 @@
-import { useState, useRef, useEffect, FC } from 'react';
+import { useState, useRef, useEffect, FC, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 import { getIngredientsSelect } from '../../services/slices/ingredients/slice';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const BurgerIngredients: FC = () => {
-  const ingredients = useSelector(getIngredientsSelect); //извлекаем ингридиенты
+  const selectBuns = createSelector([getIngredientsSelect], (ingredients) =>
+    ingredients.filter((ing) => ing.type === 'bun')
+  );
+  const selectMains = createSelector([getIngredientsSelect], (ingredients) =>
+    ingredients.filter((ing) => ing.type === 'main')
+  );
+  const selectSauces = createSelector([getIngredientsSelect], (ingredients) =>
+    ingredients.filter((ing) => ing.type === 'sauce')
+  );
 
-  const buns = ingredients.filter((item) => item.type === 'bun'); //фильтруем, чтобы булки в булках
-  const mains = ingredients.filter((item) => item.type === 'main'); //начинка в начинке
-  const sauces = ingredients.filter((item) => item.type === 'sauce'); //соус в соусе :)
+  const buns = useSelector(selectBuns);
+  const mains = useSelector(selectMains);
+  const sauces = useSelector(selectSauces);
 
   const [currentTab, setCurrentTab] = useState<TTabMode>('bun');
   const titleBunRef = useRef<HTMLHeadingElement>(null);

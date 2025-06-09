@@ -13,6 +13,6 @@ export const ProfileMenu: FC = () => {
     deleteCookie('accessToken');
     dispatch(logoutUser());
   };
-  
+
   return <ProfileMenuUI handleLogout={handleLogout} pathname={pathname} />;
 };

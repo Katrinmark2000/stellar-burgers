@@ -26,10 +26,7 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const logoutUser = createAsyncThunk('user/logout', async () => {
-  const response = await logoutApi();
-  return response;
-});
+export const logoutUser = createAsyncThunk('user/logout', logoutApi);
 
 export const checkUserAuth = createAsyncThunk(
   'user/checkAuth',

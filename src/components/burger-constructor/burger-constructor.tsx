@@ -1,18 +1,17 @@
 import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
-import { BurgerConstructorUI } from '@ui';
-import { useDispatch } from '../../services/store';
-import { useSelector } from 'react-redux';
+import { BurgerConstructorUI, Preloader } from '@ui';
+import { useDispatch, useSelector } from '../../services/store';
 import {
   setOrderRequest,
   setOrderModalData,
   getConstructorItems,
   clearOrder,
   resetConstructor
-} from '../../services/slices/consrucror/slice';
+} from '../../services/slices/constructor/slice';
 import { getIsAuthChecked, getUser } from '../../services/slices/user/slice';
 import { useNavigate } from 'react-router-dom';
-import { orderCreate } from '../../services/slices/consrucror/actions';
+import { orderCreate } from '../../services/slices/constructor/actions';
 
 export const BurgerConstructor: FC = () => {
   const constructorItems = useSelector(getConstructorItems);
