@@ -6,15 +6,9 @@ import { Preloader } from '../../components/ui';
 import { FC } from 'react';
 import { getIngredientsLoadingStatus } from '../../services/slices/ingredients/slice';
 import { useSelector } from '../../services/store';
-import { setOrderStatus } from '../../services/slices/constructor/slice';
 
 export const ConstructorPage: FC = () => {
   const isLoading = useSelector(getIngredientsLoadingStatus); //отслеживаем статус загрузки
-  const orderLoading = useSelector(setOrderStatus);
-
-  if (orderLoading) {
-    return <Preloader />;
-  }
 
   return (
     <>
