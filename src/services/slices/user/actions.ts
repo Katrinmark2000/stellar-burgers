@@ -7,7 +7,7 @@ import {
   TLoginData,
   TRegisterData,
   updateUserApi
-} from '@api';
+} from '../../../utils/burger-api';
 import { TUser } from '@utils-types';
 import { setAuthChecked } from './slice';
 import { getCookie, setCookie } from '../../../utils/cookie';
