@@ -12,7 +12,7 @@ import { getOrdersUserSlice } from './slices/order/slice';
 import { getOrderNumberUserSlice } from './slices/feed/slice';
 
 //делаем корневой редьюсер
-const rootReducer = combineSlices(
+export const rootReducer = combineSlices(
   userSlice,
   ingredientsSlice,
   constructorBurgerSlice,
