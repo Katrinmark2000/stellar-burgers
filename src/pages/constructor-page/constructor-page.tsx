@@ -1,19 +1,18 @@
-import { useSelector } from '../../services/store';
-
 import styles from './constructor-page.module.css';
 
 import { BurgerIngredients } from '../../components';
 import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
+import { getIngredientsLoadingStatus } from '../../services/slices/ingredients/slice';
+import { useSelector } from '../../services/store';
 
 export const ConstructorPage: FC = () => {
-  /** TODO: взять переменную из стора */
-  const isIngredientsLoading = false;
+  const isLoading = useSelector(getIngredientsLoadingStatus); //отслеживаем статус загрузки
 
   return (
     <>
-      {isIngredientsLoading ? (
+      {isLoading ? ( //если тру, то данные еще загружаются, если фолс, то все рендерится. Пока грузится, мы видим прелоадер
         <Preloader />
       ) : (
         <main className={styles.containerMain}>
