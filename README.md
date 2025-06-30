@@ -19,7 +19,7 @@
 1. Клонируйте репозиторий:
 
 ```
-git clone https://github.com/ваш_логин/portfolio.git
+git clone https://github.com/ваш_логин/stellar-burgers.git
 ```
 
 2. Установите зависимости:
